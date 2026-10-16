@@ -1,0 +1,24 @@
+const { chromium } = require('playwright');
+(async()=>{
+ const browser=await chromium.launch({channel:'msedge',headless:true});
+ const page=await browser.newPage({viewport:{width:1440,height:1000}});
+ page.on('pageerror',e=>console.log('PAGEERROR',e.message));
+ await page.goto('http://127.0.0.1:4174/editor/');
+ await page.waitForSelector('.asset-card');
+ await page.screenshot({path:'.preview/editor-first.png'});
+ console.log('editor',await page.locator('#save-status').textContent(),await page.locator('.page-row').count());
+ await page.goto('http://127.0.0.1:4174/');
+ await page.waitForSelector('.canvas-element');
+ await page.screenshot({path:'.preview/new-site-first.png'});
+ await page.evaluate(()=>scrollTo(0,1100));
+ await page.screenshot({path:'.preview/new-site-work.png'});
+ await page.evaluate(()=>scrollTo(0,3150));await page.screenshot({path:'.preview/new-site-bento.png'});
+ await page.evaluate(()=>scrollTo(0,4640));await page.screenshot({path:'.preview/new-site-about.png'});
+ await page.evaluate(()=>scrollTo(0,5900));await page.screenshot({path:'.preview/new-site-footer.png'});
+ await page.setViewportSize({width:390,height:844});await page.evaluate(()=>scrollTo(0,0));
+ await page.screenshot({path:'.preview/new-site-mobile.png'});
+ await page.evaluate(()=>scrollTo(0,660));await page.screenshot({path:'.preview/new-site-mobile-work.png'});
+ await page.evaluate(()=>scrollTo(0,1780));await page.screenshot({path:'.preview/new-site-mobile-bento.png'});
+ console.log('mobile overflow',await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth));
+ await browser.close();
+})().catch(e=>{console.error(e);process.exitCode=1;});

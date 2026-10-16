@@ -1,0 +1,6 @@
+const {chromium}=require('playwright');const fs=require('node:fs');
+(async()=>{const b=await chromium.launch({channel:'msedge',headless:true});try{const p=await b.newPage();await p.goto('http://127.0.0.1:4174/');const data=await p.evaluate(async()=>{
+ const mime='video/mp4;codecs=avc1.42E01E';if(!MediaRecorder.isTypeSupported(mime))throw Error('MP4 recording is unavailable');
+ const canvas=document.createElement('canvas');canvas.width=canvas.height=96;const ctx=canvas.getContext('2d'),stream=canvas.captureStream(15),recorder=new MediaRecorder(stream,{mimeType:mime}),chunks=[];
+ recorder.ondataavailable=e=>chunks.push(e.data);const done=new Promise(resolve=>recorder.onstop=resolve);recorder.start();let frame=0;const timer=setInterval(()=>{ctx.fillStyle=frame++%2?'#ff5500':'#004cff';ctx.fillRect(0,0,96,96);},60);await new Promise(r=>setTimeout(r,1500));clearInterval(timer);recorder.stop();await done;stream.getTracks().forEach(t=>t.stop());const bytes=new Uint8Array(await new Blob(chunks).arrayBuffer());return btoa(String.fromCharCode(...bytes));
+ });fs.mkdirSync('tests/fixtures',{recursive:true});fs.writeFileSync('tests/fixtures/motion.mp4',Buffer.from(data,'base64'));console.log('MP4 fixture bytes',Buffer.from(data,'base64').length);}finally{await b.close();}})().catch(e=>{console.error(e);process.exitCode=1;});

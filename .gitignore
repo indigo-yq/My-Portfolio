@@ -1,0 +1,22 @@
+# Local previews, backups, and generated website
+.preview/
+backups/
+dist/
+node_modules/
+data/*.log
+data/*.tmp
+data/backup-*.json
+data/before-*.json
+
+# Original media stays local; the editor uses copies in data/assets/.
+/网页内容/
+/联系方式/
+
+# Credentials and operating-system files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+Thumbs.db
+.DS_Store

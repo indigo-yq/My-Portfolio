@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4f0">
+  <meta name="description" content="视觉设计作品集框架：平面海报、装帧与包装设计。">
+  <title>Portfolio — Visual Design</title>
+  <link rel="icon" type="image/svg+xml" href="assets/mark.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="content.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#works" data-i18n="skip">跳转到作品</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Portfolio home">f<span class="wordmark-dot">.</span></a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#works" data-i18n="navWorks">作品</a>
+      <a href="#about" data-i18n="navAbout">关于</a>
+      <button class="text-button" data-open-contact data-i18n="navContact">联系 <span aria-hidden="true">↗</span></button>
+    </nav>
+    <button id="language-toggle" class="language-toggle" aria-label="Switch to English"><span class="lang-zh active">中</span><span class="lang-divider">/</span><span class="lang-en">EN</span></button>
+  </header>
+
+  <main id="top">
+    <section class="featured" aria-labelledby="intro-title">
+      <div class="slider-stage" id="slider-stage">
+        <div class="hero-mosaic">
+          <div class="hero-main"><div class="slide-visual" id="slide-visual"></div><button class="slide-open" id="slide-open"><span data-i18n="viewWork">查看作品</span><span aria-hidden="true">↗</span></button><span class="slide-number" id="slide-number" aria-hidden="true">01</span></div>
+          <div class="hero-side" id="hero-side"></div>
+        </div>
+        <div class="intro" aria-labelledby="intro-title">
+          <div class="intro-card-top"><p class="eyebrow" data-i18n="introEyebrow">视觉设计 · 个人作品集</p><span class="intro-symbol" aria-hidden="true">✳</span></div>
+          <h1 id="intro-title" data-i18n="introTitle">以视觉，<br>展开想象。</h1>
+          <div class="intro-card-bottom"><p data-i18n="introDescription">图像、文字与物件之间，<br>一些关于设计的探索。</p><a class="pill-link" href="#works"><span data-i18n="explore">浏览作品</span><span aria-hidden="true">↘</span></a></div>
+        </div>
+        <span class="hero-tag" aria-hidden="true">IN GOOD FORM.<span>VISUAL EXPLORATIONS</span></span>
+      </div>
+      <div class="slider-bottom"><div class="featured-label"><h2 id="featured-title" data-i18n="featured">精选作品</h2><span id="slide-counter">01 / 03</span></div><div class="slider-caption"><h3 id="slide-title"></h3><p id="slide-category" class="eyebrow"></p></div><div class="slide-dots" id="slide-dots" aria-label="选择精选作品"></div><div class="slider-arrows"><button class="round-button" id="slide-prev" aria-label="上一件作品">←</button><button class="round-button" id="slide-next" aria-label="下一件作品">→</button></div></div>
+      <div id="slide-announcement" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+    </section>
+
+    <section class="works" id="works" aria-labelledby="works-title">
+      <div class="works-heading"><div><p class="eyebrow" data-i18n="worksEyebrow">一些想法，成为了作品。</p><h2 id="works-title" data-i18n="worksTitle">作品一览<span class="title-dot">.</span></h2></div><div class="works-heading-side"><span class="works-index">INDEX / 01—03</span><p data-i18n="worksNote">在不同的媒介里，<br>寻找恰好的表达。</p></div></div>
+      <nav class="category-nav" id="category-nav" aria-label="作品分类"></nav>
+      <p class="preview-note" data-i18n="previewNote">框架预览 · 当前图形与文字为临时示意，后续替换为真实作品。</p>
+      <div id="work-sections"></div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="about-label"><p class="eyebrow">THE PERSON BEHIND THE WORK</p><h2 id="about-title" data-i18n="aboutTitle">关于我</h2><div class="about-art" aria-hidden="true"><span class="about-art-word">STAY<br>CURIOUS.</span><svg viewBox="0 0 300 300" fill="none" stroke="currentColor" stroke-width="1"><circle cx="150" cy="150" r="107"/><ellipse cx="150" cy="150" rx="42" ry="107"/><ellipse cx="150" cy="150" rx="107" ry="42"/><ellipse cx="150" cy="150" rx="42" ry="107" transform="rotate(45 150 150)"/><ellipse cx="150" cy="150" rx="42" ry="107" transform="rotate(-45 150 150)"/></svg><span class="about-art-caption">A PRACTICE IN SEEING.</span></div></div>
+      <div class="about-content"><p class="about-lead" data-i18n="aboutLead">你好，我是<span class="placeholder-name">你的名字</span>。<br>一位关注细节的视觉设计师。</p><p class="about-description" data-i18n="aboutDescription">这里将放入你的个人介绍：你关注的设计方向、创作方式，以及一小段真实经历。让作品之外的你，也被看见。</p><div class="about-tags" id="about-tags"></div><button class="inline-link" data-open-contact><span data-i18n="letsTalk">聊聊设计，或打个招呼</span><span aria-hidden="true">↗</span></button></div>
+    </section>
+
+    <section class="contact-section" aria-labelledby="contact-title"><p class="eyebrow" data-i18n="contactEyebrow">下一个想法，从一次交流开始。</p><button class="contact-title" id="contact-title" data-open-contact><span data-i18n="contactTitle">保持联系</span><span aria-hidden="true">↗</span></button><div class="contact-links"><button data-open-contact data-i18n="wechat">微信联系</button><button id="email-contact" data-i18n="email">邮件联系</button></div></section>
+  </main>
+
+  <footer class="site-footer"><a href="#top" class="wordmark">folio.</a><p><span id="copyright-year"></span> <span data-i18n="footerName">你的名字 · 视觉设计</span></p><a href="#top" class="back-top"><span data-i18n="backTop">回到顶部</span><span aria-hidden="true">↑</span></a></footer>
+
+  <dialog id="work-dialog" class="work-dialog" aria-labelledby="work-dialog-title"><div class="dialog-bar"><span class="eyebrow" id="work-dialog-category"></span><button class="dialog-close" data-close-dialog="work-dialog" aria-label="关闭作品详情">×</button></div><div class="work-dialog-heading"><h2 id="work-dialog-title"></h2><p id="work-dialog-description"></p></div><div id="work-dialog-images"></div><div class="dialog-work-nav"><button id="dialog-prev" class="inline-link"><span aria-hidden="true">←</span><span data-i18n="previousWork">上一件作品</span></button><button id="dialog-next" class="inline-link"><span data-i18n="nextWork">下一件作品</span><span aria-hidden="true">→</span></button></div></dialog>
+
+  <dialog id="contact-dialog" class="contact-dialog" aria-labelledby="contact-dialog-title"><button class="dialog-close" data-close-dialog="contact-dialog" aria-label="关闭联系窗口">×</button><p class="eyebrow">SAY HELLO</p><h2 id="contact-dialog-title" data-i18n="contactDialogTitle">很高兴认识你。</h2><p class="contact-dialog-description" data-i18n="contactDialogDescription">扫描二维码，或复制微信号。</p><div class="qr-frame" id="wechat-qr"></div><button id="copy-wechat" class="copy-button"></button><p class="contact-pending" id="contact-pending"></p></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
