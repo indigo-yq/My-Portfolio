@@ -2,7 +2,7 @@
 
 ## GitHub 与 Cloudflare Pages 发布
 
-仓库：<https://github.com/ccccezero/yq>，发布分支为 `main`。
+仓库：<https://github.com/indigo-yq/My-Portfolio>，发布分支为 `main`。
 
 在 Cloudflare Pages 中连接此仓库，填写：
 
